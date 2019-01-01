@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=DeadZombie
+comment0.text=\r\n\ DeadZombie.java\ <p>\r\n\ \r\n\ A\ class\ for\ the\ zombies\ inside\ ZombieDefenseGame.\ <p>\r\n
+comment1.params=size\ speed\ game
+comment1.target=DeadZombie(double,\ double,\ ZombieDefenseGame)
+comment1.text=the\ constructor,\ create\ the\ bee
+comment2.params=
+comment2.target=void\ run()
+comment2.text=the\ run\ method,\ to\ animate\ the\ zombie
+comment3.params=
+comment3.target=double\ getSpeed()
+comment3.text=return\ the\ current\ angle\ of\ movement
+comment4.params=speed
+comment4.target=void\ setSpeed(double)
+comment4.text=set\ the\ angle\ of\ the\ movement
+comment5.params=
+comment5.target=void\ switchImageRight()
+comment5.text=changes\ the\ image\ when\ it\ changes\ direction
+comment6.params=
+comment6.target=void\ switchImageLeft()
+comment7.params=
+comment7.target=void\ oneTimeStep()
+numComments=8

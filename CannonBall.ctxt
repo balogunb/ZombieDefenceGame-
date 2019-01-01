@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=CannonBall
+comment0.text=\r\n\ CannonBall.java\ <p>\r\n\ \r\n\ A\ class\ for\ balls\ shot\ from\ cannon\ in\ ZombieDefenseGame.\ <p>\r\n
+comment1.params=speed\ size\ game
+comment1.target=CannonBall(double,\ double,\ ZombieDefenseGame)
+comment1.text=the\ constructor,\ create\ the\ ball
+comment2.params=
+comment2.target=void\ run()
+comment2.text=the\ run\ method,\ to\ animate\ the\ ball
+comment3.params=
+comment3.target=void\ die()
+comment3.text=stop\ the\ animation
+comment4.params=
+comment4.target=void\ oneTimeStep()
+comment5.params=
+comment5.target=void\ explode()
+numComments=6

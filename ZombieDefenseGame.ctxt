@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=ZombieDefenseGame
+comment0.text=\r\n\ ZombieDefenseGame.java\ <p>\r\n\r\n\ Basit\ Balogun\r\n\ The\ main\ class\ of\ the\ game\ where\ the\ graphics\ are\ drawn\ \r\n
+comment1.params=
+comment1.target=void\ run()
+comment1.text=the\ run\ method,\ draw\ the\ inital\ graphics
+comment2.params=
+comment2.target=void\ drawGraphics()
+comment3.params=size
+comment3.target=void\ createCannon(double)
+comment4.params=point
+comment4.target=void\ mousePressed(acm.graphics.GPoint)
+comment4.text=create\ a\ bouncy\ projectile\ when\ mouse\ is\ pressed
+comment5.params=point
+comment5.target=void\ mouseMoved(acm.graphics.GPoint)
+comment5.text=move\ the\ cannon\ as\ mouse\ moves
+comment6.params=ball
+comment6.target=void\ checkCollision(CannonBall)
+comment6.text=check\ if\ projectile\ hits\ zombie
+comment7.params=zombie
+comment7.target=void\ checkCollision(DeadZombie)
+comment7.text=check\ if\ zombie\ hits\ cannon
+comment8.params=
+comment8.target=boolean\ checkStatus()
+numComments=9
