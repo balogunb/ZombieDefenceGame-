@@ -28,7 +28,8 @@ public class ZombieDefenseGame extends GraphicsProgram {
     GLabel zombiesKilled;
     GLabel gameOverLabel;
     int kills; //gives number of zombies killed 
-    private GPolygon cannon;
+    //private GPolygon cannon;
+    private GImage cannon;
     private boolean gameOver = false;
     public DeadZombie[] zombie = new DeadZombie[10];//an array of 10 zombies
 
@@ -47,20 +48,34 @@ public class ZombieDefenseGame extends GraphicsProgram {
         double speed = -2;
 
         //draw background lanes
-        for (int i = 0; i < 5; i = i + 2) {
-            GRect rect1 = new GRect(0,i*height,width, height);
-            rect1.setFilled(true);
-            rect1.setFillColor(Color.BLUE);
-            add(rect1);
-        }
+        // for (int i = 0; i < 5; i = i + 2) {
+            // GRect rect1 = new GRect(0,i*height,width, height);
+            // rect1.setFilled(true);
+            // rect1.setFillColor(Color.BLUE);
+            // add(rect1);
+        // }
 
-        for (int i = 1; i <= 5; i = i + 2) {
-            GRect rect2 = new GRect(0,i*height,width, height);
-            rect2.setFilled(true);
-            rect2.setFillColor(Color.GREEN);
-            add(rect2);
-        }    
+        // for (int i = 1; i <= 5; i = i + 2) {
+            // GRect rect2 = new GRect(0,i*height,width, height);
+            // rect2.setFilled(true);
+            // rect2.setFillColor(Color.GREEN);
+            // add(rect2);
+        // }    
+        
+        
+        // create the zombie, centered at the local origin
+        GImage background = new GImage("background.gif");
+        background.setSize(APPLICATION_WIDTH, APPLICATION_HEIGHT);
+        add(background, 0, 0); 
+        
+        
+        
+        //Replaced cannon with image file
+        cannon = new GImage("cannon.png");
+        cannon.setSize(width/3, -height);
+        add(cannon, getWidth()/2 -width/6, getHeight()); 
 
+        /**
         //draw cannon base 
         cannonBase = new GOval(BASE_SIZE,BASE_SIZE);
         cannonBase.setFilled(true);
@@ -74,6 +89,8 @@ public class ZombieDefenseGame extends GraphicsProgram {
         cannon.setFilled(true);
         cannon.setFillColor(Color.WHITE);
         cannon.setColor(Color.BLACK);
+        
+        */
 
         //draw labels 
         zombiesKilled = new GLabel("Zombies killed: "+ kills);
@@ -99,20 +116,20 @@ public class ZombieDefenseGame extends GraphicsProgram {
 
     }
     // draw a polygon as the cannon
-    private void createCannon(double size) {
-        cannon = new GPolygon();
-        // add the four corners of the cannon
-        cannon.addVertex(-size/3,0);
-        cannon.addVertex(size/3,0);
-        cannon.addVertex(size/6,-size);
-        cannon.addVertex(-size/6, -size);
+    // private void createCannon(double size) {
+        // cannon = new GPolygon();
+        // // add the four corners of the cannon
+        // cannon.addVertex(-size/3,0);
+        // cannon.addVertex(size/3,0);
+        // cannon.addVertex(size/6,-size);
+        // cannon.addVertex(-size/6, -size);
 
-    }
+    // }
 
     /** create a bouncy projectile when mouse is pressed */
     public void mousePressed(GPoint point) {
         double ballSpeed = 7;
-        double ballSize = 8;
+        double ballSize = 20;
         if (gameOver) {//if game is over use mouse pressed to restart game
             removeAll();
             drawGraphics();
@@ -122,7 +139,7 @@ public class ZombieDefenseGame extends GraphicsProgram {
         // create a cannon ball when mouse is pressed 
         CannonBall ball = new CannonBall(ballSpeed,ballSize, this);
 
-        add(ball, point.getX(), getHeight() - BASE_SIZE); 
+        add(ball, point.getX(), getHeight() - getHeight()/6); 
 
         new Thread(ball).start(); // start the animation
     }
@@ -131,8 +148,8 @@ public class ZombieDefenseGame extends GraphicsProgram {
     public void mouseMoved(GPoint point) { 
         if (gameOver) return;
         //move cannon and cannonbase  horizontally using the positionn of mouse cursor 
-        cannonBase.setLocation(point.getX()-cannonBase.getWidth()/2, cannonBase.getY());
-        cannon.setLocation(point.getX(), cannon.getY());
+        //cannonBase.setLocation(point.getX()-cannonBase.getWidth()/2, cannonBase.getY());
+        cannon.setLocation(point.getX()-cannon.getWidth()/2, cannon.getY());
     }
 
     /** check if projectile hits zombie */

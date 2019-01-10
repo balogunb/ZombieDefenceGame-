@@ -22,11 +22,17 @@ public class CannonBall extends GCompound implements Runnable {
         this.speed = speed;
         this.size = size;
 
+        //Replace oval with image 
+        GImage cannonball = new GImage("lazerbullet.png");
+        cannonball.setSize(size,size*1.5);
+        add(cannonball,-size/2,-size/2);
+        
+        
         // create the ball centered at the local origin
-        GOval ball = new GOval(-size/2, -size/2, size, size);
-        add(ball);
-        ball.setFilled(true);
-        ball.setFillColor(Color.YELLOW);
+        // GOval ball = new GOval(-size/2, -size/2, size, size);
+        // add(ball);
+        // ball.setFilled(true);
+        // ball.setFillColor(Color.RED);
     }
 
     /** the run method, to animate the ball */
