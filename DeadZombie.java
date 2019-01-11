@@ -68,7 +68,7 @@ public class DeadZombie extends GCompound implements Runnable {
     }
 
     // in each time step, move the zombie and change image game boundary is hit 
-    private void oneTimeStep() {
+    private void oneTimeStep(){       
         move(speed, 0);
         game.checkCollision(this);
     }

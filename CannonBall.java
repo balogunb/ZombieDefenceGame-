@@ -26,8 +26,7 @@ public class CannonBall extends GCompound implements Runnable {
         GImage cannonball = new GImage("lazerbullet.png");
         cannonball.setSize(size,size*1.5);
         add(cannonball,-size/2,-size/2);
-        
-        
+
         // create the ball centered at the local origin
         // GOval ball = new GOval(-size/2, -size/2, size, size);
         // add(ball);
@@ -54,6 +53,7 @@ public class CannonBall extends GCompound implements Runnable {
         move(0, -speed); // move the ball
         game.checkCollision(this); // check if hit anything
     }
+
 
     // show explosion and disappear
     private void explode() {
