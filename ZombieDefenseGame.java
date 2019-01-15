@@ -129,20 +129,28 @@ public class ZombieDefenseGame extends GraphicsProgram {
     public void mousePressed(GPoint point) {
         double ballSpeed = 7;
         double ballSize = 20;
-        if (gameOver) {//if game is over use mouse pressed to restart game
-            removeAll();
-            kills = 0;
-            drawGraphics();
-            cannonReady = true;
-        }
-
+        
         // create a cannon ball when mouse is pressed and there is no ball on the screen
-        if(cannonReady){
+        if(cannonReady && !gameOver ){ 
             CannonBall ball = new CannonBall(ballSpeed,ballSize, this);
             add(ball, point.getX(), getHeight() - getHeight()/6); 
             new Thread(ball).start(); // start the animation
             cannonReady = false;
         }
+        
+        
+        
+        if (gameOver) {//if game is over use mouse pressed to restart game
+            removeAll();
+            kills = 0;
+            gameOver = false;
+            drawGraphics();
+            gameOverLabel.setVisible(false);
+            cannonReady = true;
+            
+        }
+
+        
     }
 
     /** move the cannon as mouse moves */
@@ -183,6 +191,13 @@ public class ZombieDefenseGame extends GraphicsProgram {
         double moveDown = getHeight()/6; 
         //check if zombie[i] hits cannon base 
         //if zombie[i] hits cannon setgame of over to true 
+        if (zombie.getY() >  5 * moveDown){
+            gameOver = true;
+            gameOverLabel.setLabel("Game Over!  "+ kills+ " zombies killed. Click to restart");
+            gameOverLabel.setVisible(true);
+
+        }
+
         //make gameOver = true and set gameOver label to visible
 
         if(cannon.getX() == zombie.getX() && zombie.getY() == -40 + (-5*getHeight())){

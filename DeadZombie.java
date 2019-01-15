@@ -32,10 +32,11 @@ public class DeadZombie extends GCompound implements Runnable {
 
     /** the run method, to animate the zombie */
     public void run() {
-        while (gameOver == false) {
+        while (!game.checkStatus()) {
             oneTimeStep();
             pause(DELAY);
-            game.checkStatus();
+            //gameOver = game.checkStatus();
+            //speed = speed * .01 + speed;
 
         }      
     }
